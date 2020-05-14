@@ -138,11 +138,22 @@ kazoo-rabbitmq status
 # Install Kazoo-wrapped Kamailio
 yum install -y kazoo-kamailio
 
+
 # Update the hostname in the config
 sed -i "s/kamailio\.2600hz\.com/${_HOSTNAME}/g" /etc/kazoo/kamailio/local.cfg
 
 # Update the IP addresses
 sed -i "s/127\.0\.0\.1/${IP_ADDR}/g" /etc/kazoo/kamailio/local.cfg
+
+# Edit the kamailio config file with uncomment the domain and IP changes
+vi /etc/kazoo/kamailio/local.cfg
+
+#!substdef "!MY_HOSTNAME!my.FQDN.com!g"
+
+#!substdef "!MY_IP_ADDRESS!1.2.3.4!g"
+
+#!substdef "!MY_AMQP_URL!amqp://guest:guest@1.2.3.4:5672!g"
+
 
 # Disable Kamailio bundled systemctl script
 systemctl disable kamailio
