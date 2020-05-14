@@ -94,7 +94,7 @@ Getting numbers to route in Kazoo requires a few steps. This guide will use the 
 ### Add the carrier to the ACLs
 
 ```bash
-sup ecallmgr_maintenance allow_carrier CarrierFoo 1.2.3.4/32
+sup -necallmgr ecallmgr_maintenance allow_carrier CarrierFoo 1.2.3.4/32
 ```
 
 You can set the IP as a raw IPv4 IP address or in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation).
